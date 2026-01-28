@@ -1,51 +1,135 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Yay! 🥳</title>
+<title>Crazy Naija Apology 💖</title>
+
 <style>
-body {
-  margin:0;
-  height:100vh;
-  background:#fffbea;
-  font-family:'Arial',sans-serif;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  overflow:hidden;
-  color:#374151;
-}
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ffd6e0, #fff1c1, #d4f0fc, #c7f9cc);
+    font-family: 'Comic Sans MS', sans-serif;
+    overflow: hidden;
+    text-align: center;
+    color: #ff4d6d;
+  }
 
-h1 { font-size:42px; color:#ff6b81; margin-bottom:20px; }
-p { font-size:20px; text-align:center; max-width:450px; }
+  h1 {
+    font-size: 3em;
+    margin-top: 50px;
+    text-shadow: 2px 2px #fff;
+  }
 
-.confetti {
-  position:absolute;
-  font-size:20px;
-  animation: fall 3s linear infinite;
-}
+  button {
+    padding: 15px 28px;
+    font-size: 1.5em;
+    margin-top: 40px;
+    cursor: pointer;
+    border: none;
+    border-radius: 14px;
+    background: #fff;
+    color: #ff4d6d;
+    box-shadow: 0 6px #ff9aa2;
+    transition: transform 0.2s ease;
+  }
 
-@keyframes fall {
-  0% { transform: translateY(0) rotate(0deg); opacity:1; }
-  100% { transform: translateY(600px) rotate(360deg); opacity:0; }
-}
+  button:hover {
+    transform: scale(1.1);
+  }
+
+  button:disabled {
+    background: #ffd6e0;
+    box-shadow: none;
+    cursor: default;
+  }
+
+  #message {
+    font-size: 2em;
+    margin-top: 50px;
+    min-height: 60px;
+  }
+
+  .heartbeat {
+    animation: heartbeat 1.2s infinite;
+  }
+
+  @keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    40% { transform: scale(1); }
+    60% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+  }
+
+  .emoji {
+    position: absolute;
+    font-size: 1em;
+    animation: float 4s linear infinite;
+  }
+
+  @keyframes float {
+    from { transform: translateY(100vh) rotate(0deg); }
+    to { transform: translateY(-100px) rotate(360deg); }
+  }
 </style>
 </head>
+
 <body>
-<h1>Thank you! 💖</h1>
-<p> I’ll show you how much i appreciate you 😌💞</p>
+
+<h1>Thank you! 💖🥹</h1>
+<button id="loveBtn" onclick="apologyExplosion()">flirty lines 🤍</button>
+
+<div id="message"></div>
+
+<audio id="bgMusic" src="bugle_tune.ogg"></audio>
 
 <script>
-setInterval(()=>{
-  const conf=document.createElement('div');
-  conf.className='confetti';
-  conf.style.left=Math.random()*100+'vw';
-  const emojis=['🎉','💖','🥰','💐'];
-  conf.innerText=emojis[Math.floor(Math.random()*emojis.length)];
-  document.body.appendChild(conf);
-  setTimeout(()=>conf.remove(),3000);
-},200);
+const messages = [
+  "Is your name Wi-Fi? Because I feel a connection 📶😌",
+  "You’re like a dictionary; you add meaning to my life 📖🥹",
+  "Do you have a sunburn, or are you always this hot? 🔥😏",
+  "Are you a bank loan? Because you got my interest 💸😉"
+];
+
+let index = 0;
+let finished = false;
+
+function apologyExplosion() {
+  if (finished) return;
+
+  const msg = document.getElementById("message");
+  const btn = document.getElementById("loveBtn");
+
+  if (index < messages.length) {
+    msg.textContent = messages[index];
+    index++;
+    launchEmojis();
+  } else {
+    msg.textContent = "You love me 🥹❤️ Thank you baby.";
+    msg.classList.add("heartbeat");
+
+    btn.textContent = "Mission accomplished 😌💖";
+    btn.disabled = true;
+
+    document.getElementById("bgMusic").play();
+    finished = true;
+  }
+}
+
+function launchEmojis() {
+  for (let i = 0; i < 20; i++) {
+    const e = document.createElement("div");
+    e.className = "emoji";
+    e.style.left = Math.random() * 100 + "vw";
+    e.style.animationDuration = (Math.random() * 2 + 2) + "s";
+    e.textContent = ['🐱','💖','🤍','💞','🌈','💐','🥹','✨'][Math.floor(Math.random() * 8)];
+    document.body.appendChild(e);
+    setTimeout(() => e.remove(), 4000);
+  }
+}
 </script>
+
 </body>
 </html>
