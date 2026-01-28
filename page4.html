@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Decision Time 😅</title>
+<style>
+body {
+  margin:0;
+  height:100vh;
+  background:#e0f7fa;
+  font-family:'Arial',sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  color:#374151;
+}
+
+h1 { font-size:40px; color:#ff6b81; margin-bottom:25px; text-align:center; }
+
+button {
+  padding:14px 36px;
+  border-radius:50px;
+  font-size:16px;
+  font-weight:600;
+  border:none;
+  cursor:pointer;
+  margin:12px;
+  transition:all 0.2s ease;
+}
+
+.yes { background:#ff6b81; color:white; }
+.no { background:#fff; color:#ff6b81; border:2px solid #ff6b81; }
+
+button:hover { transform:scale(1.05); }
+
+.no { position:relative; }
+.no:hover { left: calc(50px - Math.random()*100px); } /* playfully move button */
+</style>
+</head>
+<body>
+<h1>Forgive me? 🥺</h1>
+<div>
+  <button class="yes" onclick="location.href='page5.html'">Yes 🤍</button>
+  <button class="no" onclick="alert('Please… I promise I’ll do better! 🫶')">No 💔</button>
+</div>
+</body>
+</html>

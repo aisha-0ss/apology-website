@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hearts Everywhere 💖</title>
+<style>
+body {
+  margin:0;
+  height:100vh;
+  background:#fff0f5;
+  font-family:'Arial',sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  flex-direction:column;
+  color:#374151;
+}
+
+h1 { font-size:40px; color:#ff6b81; margin-bottom:20px; }
+p { font-size:18px; text-align:center; max-width:450px; }
+
+button {
+  padding:14px 32px;
+  border-radius:50px;
+  background:#ff6b81;
+  color:white;
+  font-size:16px;
+  border:none;
+  cursor:pointer;
+  margin-top:30px;
+}
+
+.heart {
+  position:absolute;
+  font-size:24px;
+  color:#ff6b81;
+  animation: floatUp 3s linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity:1; }
+  100% { transform: translateY(-500px) scale(1.5); opacity:0; }
+}
+</style>
+</head>
+<body>
+<h1>Look at all these hearts </h1>
+<p>I’m sending them to apologize… one heart per stress I caused 😅</p>
+<button onclick="location.href='page4.html'">Can you forgive me? 🫶</button>
+
+<script>
+// Generate floating hearts randomly
+setInterval(()=>{
+  const heart=document.createElement('div');
+  heart.className='heart';
+  heart.style.left=Math.random()*100+'vw';
+  heart.style.fontSize=12+Math.random()*24+'px';
+  heart.innerText='💖';
+  document.body.appendChild(heart);
+  setTimeout(()=>{heart.remove();},3000);
+},300);
+</script>
+</body>
+</html>

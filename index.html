@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Oops… It’s Me 😬</title>
+<style>
+body {
+  margin:0;
+  height:100vh;
+  background: #ffecd2;
+  font-family: 'Arial', sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+h1 {
+  font-size:48px;
+  color:#ff6b81;
+  margin-bottom:20px;
+  animation: bounce 1s infinite alternate;
+}
+
+p {
+  font-size:20px;
+  color:#6b7280;
+  text-align:center;
+  max-width:400px;
+  margin-bottom:30px;
+}
+
+button {
+  padding:15px 35px;
+  background:#ff6b81;
+  color:white;
+  border:none;
+  border-radius:50px;
+  font-size:18px;
+  cursor:pointer;
+  transition:transform 0.2s ease;
+}
+
+button:hover { transform:scale(1.05); }
+
+@keyframes bounce {
+  from { transform:translateY(0); }
+  to { transform:translateY(-15px); }
+}
+</style>
+</head>
+<body>
+<h1>Hey babyy</h1>
+<p>I know today was stressful because of me… I really messed up 💔</p>
+<button onclick="location.href='page2.html'"> Sorry 💔🥺 </button>
+</body>
+</html>
